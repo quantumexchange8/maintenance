@@ -10,7 +10,7 @@
 <body class="bg-dark">
     <div class="col-lg-12">
         <div class="container text-center">
-            <img src="{{ asset('web_maintenance.gif') }}" class="img-fluid" style="padding-top:30px; ">
+            <img src="{{ asset('maintenance.png') }}" class="img-fluid" style="padding-top:30px; ">
             <h1 class="text-light" style="padding-top:20px;">Under Construction</h1>
             <p class="text-light">Our website is currently undergoing scheduled maintenance. <br> Should be back shortly. Thank you for your patience.</p>
         </div>
