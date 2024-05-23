@@ -10,9 +10,11 @@
 <body class="bg-dark">
     <div class="col-lg-12">
         <div class="container text-center">
-            <img src="{{ asset('maintenance.png') }}" class="img-fluid" style="padding-top:30px; ">
-            <h1 class="text-light" style="padding-top:20px;">Under Construction</h1>
+            <img src="{{ asset('web_maintenance.gif') }}" class="img-fluid" style="padding-top:30px; ">
+            <h1 class="text-light" style="padding-top:20px;">Under Construction - Will be back on 1pm 正在升级中 - 将于下午 1 点回复正常</h1>
             <p class="text-light">Our website is currently undergoing scheduled maintenance. <br> Should be back shortly. Thank you for your patience.</p>
+            <p class="text-light">我们的网站目前正在进行定期维护。 <br>应该很快就会回来。 感谢您的耐心等待。</p>
+        </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
