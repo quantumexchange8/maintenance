@@ -13,7 +13,9 @@
             <img src="{{ asset('web_maintenance.gif') }}" class="img-fluid" style="padding-top:30px; ">
             <h1 class="text-light" style="padding-top:20px;">升級中</h1>
             <p class="text-light">親愛的會員們，<br><br>
-我們非常感謝會員一直以來支持環球量子資本 (QUANTUM CAPITAL GLOBAL)。我們的個人後臺系統及全新介面將於 今晚12點 (12月1日) 升級完成，<br>新系統域名將更改為：<a href="https://login.qcgexchange.com">https://login.qcgexchange.com</a>。<br><br>
+我們非常感謝會員一直以來支持環球量子資本 (QUANTUM CAPITAL GLOBAL)。我們的個人後臺系統及全新介面將於 今晚12點 (12月1日) 升級完成，<br>
+新域名將更改為：<a href="https://home.qcgexchange.com">https://home.qcgexchange.com</a><br>
+新系統域名將更改為：<a href="https://login.qcgexchange.com">https://login.qcgexchange.com</a><br><br>
 
 此次升級旨在提供更好的使用體驗，提高交易質量，並引入更多實用的新功能，幫助會員更高效地管理交易賬戶和查看帳目明細。此外，請注意以下事項：<br><br>
 
