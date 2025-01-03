@@ -12,8 +12,8 @@
         <div class="container text-center">
             <img src="{{ asset('web_maintenance.gif') }}" class="img-fluid" style="padding-top:30px; ">
             <h1 class="text-light" style="padding-top:20px;">Under Construction - Will be back</h1>
-            <p class="text-light">Our website is currently undergoing scheduled maintenance. <br> Should be back shortly. Thank you for your patience. <br> The new interface will be completed upgraded on 12:00 tonight (December 1st 2024)</p>
-            <p class="text-light">我們的網站目前正在進行定期維護。 <br>應該很快就會回來。 感謝您的耐心等待。 <br> 新介面將於 今晚12點 (12月1日) 升級完成</p>
+            <p class="text-light">Our website is currently undergoing scheduled maintenance. <br> Should be back shortly. Thank you for your patience. <br> </p>
+            <p class="text-light">我們的網站目前正在進行定期維護。 <br>應該很快就會回來。 感謝您的耐心等待。</p>
                     </div>
         </div>
     </div>
