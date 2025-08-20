@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $ip = $request->ip();
+    $ip = $request->server('HTTP_CF_CONNECTING_IP') ?? $request->ip();
     return view('index', compact('ip'));
 });
 
