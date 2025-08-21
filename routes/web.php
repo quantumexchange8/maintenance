@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (Request $request) {
     $ip = $request->server('HTTP_CF_CONNECTING_IP') ?? $request->ip();
+
+    // If it's IPv6-mapped IPv4, extract the IPv4 part
+    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        if (strpos($ip, '::ffff:') === 0) {
+            $ip = substr($ip, 7);
+        }
+    }
+
     return view('index', compact('ip'));
 });
 
