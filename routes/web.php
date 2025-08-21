@@ -15,19 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function (Request $request) {
-    // Directly from Cloudflare
-    $cfIp = $request->server('HTTP_CF_CONNECTING_IP');
+    // Only trust Cloudflare's client IP header; no REMOTE_ADDR fallback
+    $ip = $request->server('HTTP_CF_CONNECTING_IP') ?: $request->ip();
 
-    // Raw connection to your server (often IPv6 if client supports it)
-    $remoteIp = $request->server('REMOTE_ADDR');
+    $ipv4 = null;
+    $ipv6 = null;
 
-    // Just in case both are the same, avoid duplicates
-    $ips = [
-        'ipv4' => filter_var($cfIp, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) ? $cfIp : null,
-        'ipv6' => filter_var($cfIp, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? $cfIp : $remoteIp,
-    ];
+    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        $ipv4 = $ip;
+    } elseif (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        // If it's IPv4-mapped IPv6 (::ffff:x.x.x.x), extract IPv4; else it's native IPv6
+        if (strpos($ip, '::ffff:') === 0) {
+            $mapped = substr($ip, 7);
+            if (filter_var($mapped, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+                $ipv4 = $mapped;
+            }
+        } else {
+            $ipv6 = $ip;
+        }
+    }
 
-    return view('index', ['ips' => $ips]);
+    return view('index', compact('ipv4', 'ipv6'));
 });
 
 Route::get('/accounts/login/', function () {
