@@ -14,8 +14,8 @@
             <h1 class="text-light" style="padding-top:20px;">Under Construction - Will be back</h1>
             <p class="text-light">Our website is currently undergoing scheduled maintenance. <br> Should be back shortly. Thank you for your patience. <br> </p>
             <p class="text-light">我們的網站目前正在進行定期維護。 <br>應該很快就會回來。 感謝您的耐心等待。</p>
-            <p class="text-light"><strong>IPv4:</strong> {{ $ips['ipv4'] ?? 'Not available' }}</p>
-            <p class="text-light"><strong>IPv6:</strong> {{ $ips['ipv6'] ?? 'Not available' }}</p>
+            <p class="text-light"><strong>IPv4:</strong> {{ $ipv4 ?? 'Not available' }}</p>
+            <p class="text-light"><strong>IPv6:</strong> {{ $ipv6 ?? 'Not available' }}</p>
                
         </div>
     </div>
