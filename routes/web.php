@@ -15,16 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function (Request $request) {
-    $ip = $request->server('HTTP_CF_CONNECTING_IP') ?? $request->ip();
+    // Directly from Cloudflare
+    $cfIp = $request->server('HTTP_CF_CONNECTING_IP');
 
-    // If it's IPv6-mapped IPv4, extract the IPv4 part
-    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-        if (strpos($ip, '::ffff:') === 0) {
-            $ip = substr($ip, 7);
-        }
-    }
+    // Raw connection to your server (often IPv6 if client supports it)
+    $remoteIp = $request->server('REMOTE_ADDR');
 
-    return view('index', compact('ip'));
+    // Just in case both are the same, avoid duplicates
+    $ips = [
+        'ipv4' => filter_var($cfIp, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) ? $cfIp : null,
+        'ipv6' => filter_var($cfIp, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? $cfIp : $remoteIp,
+    ];
+
+    return view('index', ['ips' => $ips]);
 });
 
 Route::get('/accounts/login/', function () {
